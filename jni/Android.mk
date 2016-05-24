@@ -13,10 +13,11 @@
 # ==========================================================
 ##== LUASEC ==
 LOCAL_PATH 		:= $(call my-dir)
+include 		$(CLEAR_VARS)
 LUAROOT			:= /data/local/tmp/lib/lua/5.1
 LUAETC			:= /data/local/tmp/etc
 LUALIB			:= /data/local/tmp/lib
-LUAINC			:= /data/local/tmp/lib/include /data/local/tmp/lib/luajit-2.0
+LUAINC			:= /data/local/tmp/lib/include /data/local/tmp/lib/luajit-2.0 $(LOCAL_PATH)
 
 include 		$(CLEAR_VARS)
 LOCAL_MODULE    	:= libssl
@@ -68,15 +69,15 @@ LOCAL_SHARED_LIBRARIES	:= ssl crypto luasocket luajit
 include 		$(BUILD_SHARED_LIBRARY)
 
 all:
-	-mkdir /data
-	-mkdir /data/local
-	-mkdir /data/local/tmp
-	-mkdir /data/local/tmp/lib
-	-mkdir /data/local/tmp/lib/lua
-	-mkdir $(LUAROOT)
-	-mkdir $(LUAROOT)/ssl
-	cp ssl.lua $(LUAROOT)
-	cp https.lua $(LUAROOT)/ssl
-	cp ../libs/armeabi-v7a/libluassl.so $(LUAROOT)/ssl/core.so
-	cp ../libs/armeabi-v7a/libcontext.so $(LUAROOT)/ssl/context.so
-	cp ../libs/armeabi-v7a/libx509.so $(LUAROOT)/ssl/x509.so
+	-mkdir /data 2>/dev/null
+	-mkdir /data/local 2>/dev/null
+	-mkdir /data/local/tmp 2>/dev/null
+	-mkdir /data/local/tmp/lib 2>/dev/null
+	-mkdir /data/local/tmp/lib/lua 2>/dev/null
+	-mkdir $(LUAROOT) 2>/dev/null
+	-mkdir $(LUAROOT)/ssl 2>/dev/null
+	cp $(LOCAL_PATH)/ssl.lua $(LUAROOT)
+	cp $(LOCAL_PATH)/https.lua $(LUAROOT)/ssl
+	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libluassl.so $(LUAROOT)/ssl/core.so
+	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libcontext.so $(LUAROOT)/ssl/context.so
+	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libx509.so $(LUAROOT)/ssl/x509.so

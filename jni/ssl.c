@@ -22,10 +22,10 @@
 #include <lua.h>
 #include <lauxlib.h>
 
-#include "luasocket/io.h"
-#include "luasocket/buffer.h"
-#include "luasocket/timeout.h"
-#include "luasocket/socket.h"
+#include <luasocket/io.h>
+#include <luasocket/buffer.h>
+#include <luasocket/timeout.h>
+#include <luasocket/socket.h>
 
 #include "x509.h"
 #include "context.h"

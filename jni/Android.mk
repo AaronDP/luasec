@@ -80,4 +80,6 @@ all:
 	cp $(LOCAL_PATH)/https.lua $(LUAROOT)/ssl
 	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libluassl.so $(LUAROOT)/ssl/core.so
 	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libcontext.so $(LUAROOT)/ssl/context.so
+	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libcontext.so $(LUALIB)
 	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libx509.so $(LUAROOT)/ssl/x509.so
+	cp $(LOCAL_PATH)/../libs/armeabi-v7a/libx509.so $(LUALIB)
